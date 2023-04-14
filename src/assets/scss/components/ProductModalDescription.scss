@@ -1,0 +1,84 @@
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.75);
+  position: fixed;
+  top: -40px;
+  right: 0px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  pointer-events: all;
+}
+
+.modalContainer {
+  position: sticky;
+  width: 30vw;
+  height: 50vw;
+  .title {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    z-index: 510;
+  }
+  .titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+    button {
+      background-color: transparent;
+      border: none;
+      font-size: 25px;
+      cursor: pointer;
+    }
+    .footer {
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button {
+        width: 150px;
+        height: 45px;
+        margin: 10px;
+        border: none;
+
+        color: white;
+        // border-radius: 8px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+  .body {
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  // border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  z-index: 510;
+  pointer-events: auto;
+  img {
+    width: 20vw;
+  }
+  span {
+    font-weight: bold;
+  }
+}
+
+.close-btn {
+  color: black;
+}

@@ -1,0 +1,23 @@
+.content_top {
+  display: flex;
+  flex-direction: column;
+}
+.main-Wrapper {
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .main-Wrapper {
+    width: 900px;
+  }
+}
+.content__error-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
