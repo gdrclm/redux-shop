@@ -39,7 +39,7 @@ export const Header: FC<Props> = () => {
         </div>
 
         <div className="header_cart">
-          {totalCount && totalPrice && (
+          {location.pathname !== "/cart" && (
             <Link className="header_link" to="/Cart">
               <div>
                 <span>Товаров в корзине: {totalCount}</span> <br />

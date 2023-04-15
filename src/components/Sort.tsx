@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { setSort } from "../redux/slices/filterSlice";
+import { setSort } from "../redux/filter/slice";
 import { SortPropertyEnum } from "../redux/filter/types";
 import { useAppDispatch } from "../redux/store";
 

@@ -34,9 +34,7 @@ export const CartItem: FC<CartItemProps> = ({
     dispatch(minusItem(id));
   };
   const onClickRemove = () => {
-    if (window.confirm("вы действительно хотите удалить товар?")) {
-      dispatch(removeItem(id));
-    }
+    dispatch(removeItem(id));
   };
   return (
     <div className="cart__item">
@@ -67,12 +65,12 @@ export const CartItem: FC<CartItemProps> = ({
             +
           </button>
 
-          <div className="cart__item-remove">
-            <div
-              onClick={onClickRemove}
-              className="button button--outline button--circle"
-            ></div>
-          </div>
+          <button
+            className="button button--outline cart__item-remove"
+            onClick={onClickRemove}
+          >
+            x
+          </button>
         </div>
       </div>
     </div>

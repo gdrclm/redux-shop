@@ -35,8 +35,6 @@ export const GoodsBlock: FC<GoodsBlockProps> = ({
       type: "",
     };
 
-    console.log(item);
-
     dispatch(addItem(item));
   };
 
@@ -63,16 +61,15 @@ export const GoodsBlock: FC<GoodsBlockProps> = ({
           imageUrl={imageUrl}
         />
       )}
-
-      <p className="products-name">{name}</p>
       <div className="products-info-wrapper">
-        <p className="product-price">Цена : {price}₽</p>
+        <p className="products-name">{name}</p>
+        <p className="product-price">{price}₽</p>
         <p className="product-kkal">количество калорий: {kKal}</p>
-        <button className="add-item" onClick={onClickAdd}>
-          <span>Добавить</span>
-          {addedCount > 0 && <i> {addedCount}</i>}
-        </button>
       </div>
+      <button className="add-item" onClick={onClickAdd}>
+        <span>Добавить</span>
+        {addedCount > 0 && <i> {addedCount}</i>}
+      </button>
     </div>
   );
 };

@@ -3,18 +3,16 @@ import { useAppDispatch } from "../redux/store";
 import GoodsItem from "../components/GoodsBlock";
 import { Categories, Sort, Skeleton, Pagination } from "../components";
 
-import { setPageCount, setCategoryId } from "../redux/slices/filterSlice";
+import { setPageCount, setCategoryId } from "../redux/filter/slice";
 import { useSelector } from "react-redux";
 import { selectGoodsData } from "../redux/items/selectors";
 import { selectFilter } from "../redux/filter/selectors";
-import { fetchGoods } from "../redux/items/asyncActions";
+import { fetchGoods, fetchGoodsTotalCount } from "../redux/items/asyncActions";
 
 const Home: FC = () => {
   const dispatch = useAppDispatch();
 
   const { items, status } = useSelector(selectGoodsData);
-
-  console.log(items);
 
   const { categoryId, sort, pageCount, searchValue } =
     useSelector(selectFilter);
@@ -43,6 +41,14 @@ const Home: FC = () => {
         pageCount: String(pageCount),
       })
     );
+    dispatch(
+      fetchGoodsTotalCount({
+        sortBy,
+        category,
+        search,
+        pageCount: String(pageCount),
+      })
+    );
 
     window.scrollTo(0, 0);
   };
@@ -51,6 +57,7 @@ const Home: FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryId, sort.sortProperty, searchValue, pageCount]);
   const goods = items.map((obj) => <GoodsItem key={obj.id} {...obj} />);
+
   const skeletons = [...new Array(6)].map((_, index) => (
     <Skeleton key={index} />
   ));
@@ -79,7 +86,11 @@ const Home: FC = () => {
       )}
 
       <div className="container">
-        <Pagination currentPage={pageCount} onChangePage={onChangePage} />
+        <Pagination
+          items={items}
+          currentPage={pageCount}
+          onChangePage={onChangePage}
+        />
       </div>
     </div>
   );

@@ -25,4 +25,5 @@ export type SearchGoodsParams = {
 export interface GoodsSliceState {
   items: Goods[];
   status: Status;
+  totalCount: number;
 }

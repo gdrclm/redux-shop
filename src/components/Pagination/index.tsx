@@ -1,24 +1,28 @@
 import { FC } from "react";
 import ReactPaginate from "react-paginate";
-
 import styles from "./Pagination.module.scss";
+import { Goods } from "../../redux/items/types";
+import { PAGE_LIMIT } from "../../constants";
+import { useAppSelector } from "../../redux/store";
 
 type Props = {
-  onChangePage(e: any): void;
-  currentPage: any;
+  items: Goods[];
+  onChangePage(e: number): void;
+  currentPage: number;
 };
 
-export const Pagination: FC<Props> = ({ currentPage, onChangePage }) => {
+export const Pagination: FC<Props> = ({ currentPage, onChangePage, items }) => {
+  const totalCount = useAppSelector((state) => state.goods.totalCount);
+
   return (
     <ReactPaginate
-      marginPagesDisplayed={2}
       className={styles.root}
       breakLabel="..."
       nextLabel=">"
       previousLabel="< "
       onPageChange={(event) => onChangePage(event.selected + 1)}
-      pageRangeDisplayed={2}
-      pageCount={17}
+      pageRangeDisplayed={4}
+      pageCount={totalCount / PAGE_LIMIT}
       forcePage={currentPage - 1}
     />
   );

@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchGoods } from "./asyncActions";
+import { fetchGoods, fetchGoodsTotalCount } from "./asyncActions";
 import { Goods, GoodsSliceState, Status } from "./types";
 
 const initialState: GoodsSliceState = {
   items: [],
   status: Status.LOADING,
+  totalCount: 0,
 };
 
 const goodsSlice = createSlice({
@@ -13,6 +14,9 @@ const goodsSlice = createSlice({
   reducers: {
     setItems(state, action: PayloadAction<Goods[]>) {
       state.items = action.payload;
+    },
+    getTotalCount(state, action: PayloadAction<number>) {
+      state.totalCount = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -28,9 +32,12 @@ const goodsSlice = createSlice({
       state.status = Status.ERROR;
       state.items = [];
     });
+    builder.addCase(fetchGoodsTotalCount.fulfilled, (state, action) => {
+      state.totalCount = action.payload;
+    });
   },
 });
 
-export const { setItems } = goodsSlice.actions;
+export const { setItems, getTotalCount } = goodsSlice.actions;
 
 export default goodsSlice.reducer;

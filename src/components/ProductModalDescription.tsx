@@ -40,7 +40,7 @@ export const ProductModalDescription: FC<Props> = ({
       tabIndex={0}
       onClick={handleBackgroundClick}
     >
-      <div className="modalContainer">
+      <div className="modalContainer" onClick={(e) => e.stopPropagation()}>
         <div className="titleCloseBtn">
           <button
             className="close-btn"
@@ -66,7 +66,7 @@ export const ProductModalDescription: FC<Props> = ({
             <span>срок годности: </span> {expirationDate}
           </p>
           <p>
-            <span>Цена: </span> {price}
+            <span>Цена: </span> {price}₽
           </p>
         </div>
       </div>

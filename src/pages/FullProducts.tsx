@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { API_URL } from "../constants";
 
 const FullProducts: React.FC = () => {
   const [products, setProducts] = React.useState<{
@@ -15,11 +16,9 @@ const FullProducts: React.FC = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    async function fetchGoods() {
+    async function fetchGoodsById() {
       try {
-        const { data } = await axios.get(
-          "https://63aa356f594f75dc1dcb2168.mockapi.io/goods/" + id
-        );
+        const { data } = await axios.get(API_URL + id);
         setProducts(data);
       } catch (error) {
         alert("Ошибка при получении товара!");
@@ -27,7 +26,7 @@ const FullProducts: React.FC = () => {
       }
     }
 
-    fetchGoods();
+    fetchGoodsById();
   }, [id, navigate]);
 
   if (!products) {
