@@ -1,6 +1,6 @@
 {
-  "name": "redux-shop",
   "homepage": "https://gdrclm.github.io/redux-shop",
+  "name": "redux-shop",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -36,8 +36,8 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
     "build": "react-scripts build",
+    "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

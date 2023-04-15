@@ -55,18 +55,20 @@ export const Sort: FC<SortPopupProps> = React.memo(({ value }) => {
     setIsVisible(false);
   };
 
-  React.useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const _event = event as PopupClick;
+  // React.useEffect(() => {
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     // const _event = event as PopupClick;
 
-      if (sortRef.current && !_event.path.includes(sortRef.current)) {
-        setIsVisible(false);
-      }
-      document.body.addEventListener("click", handleClickOutside);
-      return () =>
-        document.body.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
+  //     // debugger;
+
+  //     if (sortRef.current) {
+  //       setIsVisible(false);
+  //     }
+  //   };
+
+  //   document.body.addEventListener("click", handleClickOutside);
+  //   return () => document.body.removeEventListener("click", handleClickOutside);
+  // }, []);
 
   return (
     <div ref={sortRef} className="sort_cont">
