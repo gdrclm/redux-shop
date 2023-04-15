@@ -6,8 +6,8 @@ import { useAppSelector } from "../redux/store";
 import { selectCart } from "../redux/cart/selectors";
 
 import Search from "./Search";
-type Props = {};
-export const Header: FC<Props> = () => {
+
+export const Header: FC = () => {
   const { items, totalPrice } = useAppSelector(selectCart);
 
   const location = useLocation();
