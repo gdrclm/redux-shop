@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/redux-shop/static/css/main.fe50d439.css",
+    "main.js": "/redux-shop/static/js/main.0518aab6.js",
+    "Cart.js": "/redux-shop/static/js/Cart.bcdde898.chunk.js",
+    "FullProducts.js": "/redux-shop/static/js/FullProducts.470bd350.chunk.js",
+    "NotFound.js": "/redux-shop/static/js/NotFound.1a7d109d.chunk.js",
+    "index.html": "/redux-shop/index.html",
+    "main.fe50d439.css.map": "/redux-shop/static/css/main.fe50d439.css.map",
+    "main.0518aab6.js.map": "/redux-shop/static/js/main.0518aab6.js.map",
+    "Cart.bcdde898.chunk.js.map": "/redux-shop/static/js/Cart.bcdde898.chunk.js.map",
+    "FullProducts.470bd350.chunk.js.map": "/redux-shop/static/js/FullProducts.470bd350.chunk.js.map",
+    "NotFound.1a7d109d.chunk.js.map": "/redux-shop/static/js/NotFound.1a7d109d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fe50d439.css",
+    "static/js/main.0518aab6.js"
+  ]
+}
